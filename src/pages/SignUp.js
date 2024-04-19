@@ -1,8 +1,9 @@
-import { useState } from "react";
-import { validatePhone, validateEmail } from "./utils";
-import { LoadingButton } from "@mui/lab";
-import { TextField, MenuItem, Box } from "@mui/material";
-import { Link } from "react-router-dom";
+import { useState } from 'react';
+import { validatePhone, validateEmail } from './utils';
+import { LoadingButton } from '@mui/lab';
+import { TextField, MenuItem, Box } from '@mui/material';
+import { Link } from 'react-router-dom';
+import './SignUp.css';
 
 const SignUp = () => {
   const [firstName, setFirstName] = useState("");
@@ -19,6 +20,7 @@ const SignUp = () => {
       firstName &&
       lastName &&
       validatePhone(phone.value) &&
+      phone.value.length >= 10 &&
       validateEmail(email.value) &&
       password.value.length >= 8 &&
       password.value === confirmPassword.value &&
@@ -48,12 +50,12 @@ const SignUp = () => {
   };
 
   return (
-    <div>
-      <Box className="w-full max-w-md mx-auto mt-8 p-6 border rounded-lg">
+    <>
+      <Box className="signup-container">
         <form onSubmit={handleSubmit}>
-          <fieldset className="space-y-4">
-            <h1 className="text-2xl font-bold">Sign Up</h1>
-            <div>
+          <fieldset className="signup-fieldset">
+            <h1 className="signup-title">Sign Up</h1>
+            <div className='signup-input'>
               <TextField
                 label="First name *"
                 value={firstName}
@@ -61,7 +63,7 @@ const SignUp = () => {
                 fullWidth
               />
             </div>
-            <div>
+            <div className='signup-input'>
               <TextField
                 label="Last name *"
                 value={lastName}
@@ -69,7 +71,7 @@ const SignUp = () => {
                 fullWidth
               />
             </div>
-            <div>
+            <div className='signup-input'>
               <TextField
                 label="Phone number *"
                 value={phone.value}
@@ -81,13 +83,15 @@ const SignUp = () => {
                 }
                 fullWidth
                 error={!validatePhone(phone.value) &&
+                  phone.value.length < 10 &&
                   phone.isTouched}
                 helperText={!validatePhone(phone.value) &&
+                  phone.value.length < 10 &&
                   phone.isTouched &&
                   "Please enter a valid phone number"}
               />
             </div>
-            <div>
+            <div className='signup-input'>
               <TextField
                 type="email"
                 label="Email address *"
@@ -106,7 +110,7 @@ const SignUp = () => {
                   "Please enter a valid email address"}
               />
             </div>
-            <div>
+            <div className='signup-input'>
               <TextField
                 type="password"
                 label="Password *"
@@ -125,7 +129,7 @@ const SignUp = () => {
                   "Password should have at least 8 characters"}
               />
             </div>
-            <div>
+            <div className='signup-input'>
               <TextField
                 type="password"
                 label="Confirm Password *"
@@ -148,7 +152,7 @@ const SignUp = () => {
                   "Passwords do not match"}
               />
             </div>
-            <div>
+            <div className='signup-input'>
               <TextField
                 select
                 label="Role *"
@@ -161,7 +165,7 @@ const SignUp = () => {
                 <MenuItem value="business">Business</MenuItem>
               </TextField>
             </div>
-            <div className="flex justify-center">
+            <div className="signup-button-container">
               <LoadingButton
                 type="submit"
                 disabled={!getIsFormValid()}
@@ -172,16 +176,16 @@ const SignUp = () => {
                 Create account
               </LoadingButton>
             </div>
-            <div className="text-center">
-              Already have an account?{" "}
-              <Link className="text-blue-400" to="/">
-                Log In
-              </Link>
-            </div>
           </fieldset>
         </form>
+        <div>
+          Already have an account?{" "}
+          <Link to="/" className="sigup-login-link">
+            Log In
+          </Link>
+        </div>
       </Box>
-    </div>
+    </>
   );
 };
 

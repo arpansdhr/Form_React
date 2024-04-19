@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import { LoadingButton } from "@mui/lab";
-import { TextField, Box } from "@mui/material";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { LoadingButton } from '@mui/lab';
+import { TextField, Box } from '@mui/material';
+import { Link } from 'react-router-dom';
+import './LogIn.css';
 
 const LogIn = () => {
   const [user, setUser] = useState({ value: "", isTouched: false });
@@ -9,10 +10,7 @@ const LogIn = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const getIsFormValid = () => {
-    return (
-      user.value.length >= 10 &&
-      password.value.length >= 8
-    );
+    return user.value.length >= 10 && password.value.length >= 8;
   };
 
   const clearForm = () => {
@@ -32,50 +30,42 @@ const LogIn = () => {
   };
 
   return (
-    <div>
-      <Box className="w-full max-w-md mx-auto mt-8 p-6 border rounded-lg">
+    <>
+      <Box className="login-container">
         <form onSubmit={handleSubmit}>
-          <fieldset className="space-y-4">
-            <h1 className="text-2xl font-bold">Log In</h1>
-            <div>
+          <fieldset className="login-fieldset">
+            <h1 className="login-title">Log In</h1>
+            <div className="login-input">
               <TextField
                 type="text"
-                label="Phone number or email address"
+                label="Phone number or email"
                 value={user.value}
-                onChange={(e) =>
-                  setUser({ ...user, value: e.target.value })
-                }
-                onBlur={(e) =>
-                  setUser({ ...user, isTouched: true })
-                }
+                onChange={(e) => setUser({ ...user, value: e.target.value })}
+                onBlur={(e) => setUser({ ...user, isTouched: true })}
                 fullWidth
-                error={user.value.length < 10 &&
-                  user.isTouched}
-                helperText={user.value.length < 10 &&
-                  user.isTouched &&
-                  "Please enter a valid number or email"}
+                error={user.value.length < 10 && user.isTouched}
+                helperText={
+                  user.value.length < 10 && user.isTouched &&
+                  "Please enter a valid number or email"
+                }
               />
             </div>
-            <div>
+            <div className="login-input">
               <TextField
                 type="password"
                 label="Password"
                 value={password.value}
-                onChange={(e) =>
-                  setPassword({ ...password, value: e.target.value })
-                }
-                onBlur={(e) =>
-                  setPassword({ ...password, isTouched: true })
-                }
+                onChange={(e) => setPassword({ ...password, value: e.target.value })}
+                onBlur={(e) => setPassword({ ...password, isTouched: true })}
                 fullWidth
-                error={password.value.length < 8 &&
-                  password.isTouched}
-                helperText={password.value.length < 8 &&
-                  password.isTouched &&
-                  "Password should have at least 8 characters"}
+                error={password.value.length < 8 && password.isTouched}
+                helperText={
+                  password.value.length < 8 && password.isTouched &&
+                  "Password should've min 8 characters"
+                }
               />
             </div>
-            <div className="flex justify-center">
+            <div className="login-button-container">
               <LoadingButton
                 type="submit"
                 disabled={!getIsFormValid()}
@@ -86,29 +76,21 @@ const LogIn = () => {
                 Log In
               </LoadingButton>
             </div>
-            <div className='flex sm:m-auto justify-between ml-1'>
-              <div className='bg-black font-bold m-auto w-1/3 sm:w-1/8 h-0.5 border'></div>
+            <div className="login-or-container">
+              <div className="login-or-divider"></div>
               <span>OR</span>
-              <div className='bg-black font-bold m-auto w-1/3 sm:w-1/8 h-0.5 border'></div>
+              <div className="login-or-divider"></div>
             </div>
-            <div className="flex justify-center">
-              <button type="button">Login with Google</button>
-            </div> 
-            <Link to="/forgotpassword" className="flex justify-center">
-              Forgot password?
-            </Link>
           </fieldset>
         </form>
+        <Link className='login-google-link'>Log in with Google</Link> 
+        <Link to="/forgotpassword" className='login-forgotpassword-link'>Forgot password?</Link>    
       </Box>
-      <Box className="w-full max-w-md mx-auto mt-8 p-6 border rounded-lg">
-        <div className="text-center">
-          Don't have an account?{" "}
-          <Link className="text-blue-400" to="/signup">
-            Sign Up
-          </Link>
-        </div>
+      <Box className="login-container-group">
+        Don't have an account?{" "}
+        <Link to="/signup" className='login-signup-link'>Sign up</Link>
       </Box>
-    </div>
+    </>
   );
 };
 
