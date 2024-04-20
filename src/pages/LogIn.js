@@ -3,6 +3,7 @@ import { LoadingButton } from '@mui/lab';
 import { TextField, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 import './LogIn.css';
+import google from './assests/google.svg';
 
 const LogIn = () => {
   const [user, setUser] = useState({ value: "", isTouched: false });
@@ -83,7 +84,9 @@ const LogIn = () => {
             </div>
           </fieldset>
         </form>
-        <Link className='login-google-link'>Log in with Google</Link> 
+        <a href="" className="login-google-link">
+          <img src={google} className="login-google-logo" alt="logo" />Log in with Google
+        </a> 
         <Link to="/forgotpassword" className='login-forgotpassword-link'>Forgot password?</Link>    
       </Box>
       <Box className="login-container-group">

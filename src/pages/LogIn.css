@@ -58,6 +58,13 @@
   margin-bottom: 1rem;
 }
 
+.login-google-logo {
+  position: fixed;
+  width: 20px;
+  top: 79%;
+  right: 69%;
+}
+
 .login-google-link:hover {
   color: gray;
 }

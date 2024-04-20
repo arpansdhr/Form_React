@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { validatePhone, validateEmail } from './utils';
+import { validatePhone, validateEmail } from './assests/utils';
 import { LoadingButton } from '@mui/lab';
 import { TextField, MenuItem, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
