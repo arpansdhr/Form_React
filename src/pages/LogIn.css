@@ -59,10 +59,10 @@
 }
 
 .login-google-logo {
-  position: fixed;
+  position: relative;
   width: 20px;
-  top: 79%;
-  right: 71%;
+  right: 3%;
+  top: 4px; 
 }
 
 .login-google-link:hover {
@@ -81,7 +81,7 @@
 
 .login-container-group {
   position: fixed;
-  top: 85%;
+  top: 113%;
   left: 50%;
   transform: translate(-50%, -50%);
   align-items: center;
@@ -102,10 +102,4 @@
 
 .login-signup-link:hover {
   color: skyblue;
-}
-
-@media (max-width: 640px) {
-  .login-container-group {
-    top: 78%;
-  }
 }

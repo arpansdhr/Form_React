@@ -88,10 +88,10 @@ const LogIn = () => {
           <img src={google} className="login-google-logo" alt="logo" />Log in with Google
         </a> 
         <Link to="/forgotpassword" className='login-forgotpassword-link'>Forgot password?</Link>    
-      </Box>
-      <Box className="login-container-group">
-        Don't have an account?{" "}
-        <Link to="/signup" className='login-signup-link'>Sign up</Link>
+        <Box className="login-container-group">
+          Don't have an account?{" "}
+          <Link to="/signup" className='login-signup-link'>Sign up</Link>
+        </Box>
       </Box>
     </>
   );
