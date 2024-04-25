@@ -8,7 +8,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 320px;
+    max-width: 400px;
     padding: 2rem;
     border-radius: 4px;
     box-shadow: 0 0 2px 2px rgb(0, 0, 0, 0.1);
@@ -29,6 +29,9 @@
 
 .signup-input {
     margin-bottom: 1rem;
+    width: 130%;
+    margin-left: -15%;
+    margin-right: -15%;
 }
 
 .signup-button-container {
@@ -42,6 +45,19 @@
     text-decoration: none;
 }
 
-.sigup-login-link:hover{
+.sigup-login-link:hover {
     color: skyblue;
+}
+
+@media (max-width: 640px) {
+    .signup-container {
+        width: 55%;
+    }
+
+    .signup-input {
+        margin-bottom: 1rem;
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }

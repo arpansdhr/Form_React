@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 300px;
+  max-width: 250px;
   padding: 2rem;
   border-radius: 4px;
   box-shadow: 0 0 2px 2px rgb(0, 0, 0, 0.1);
@@ -62,7 +62,7 @@
   position: fixed;
   width: 20px;
   top: 79%;
-  right: 69%;
+  right: 71%;
 }
 
 .login-google-link:hover {
@@ -81,13 +81,13 @@
 
 .login-container-group {
   position: fixed;
-  top: 88%;
+  top: 85%;
   left: 50%;
   transform: translate(-50%, -50%);
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 300px;
+  max-width: 250px;
   padding: 2rem;
   border-radius: 4px;
   box-shadow: 0 0 2px 2px rgb(0, 0, 0, 0.1);
@@ -102,4 +102,10 @@
 
 .login-signup-link:hover {
   color: skyblue;
+}
+
+@media (max-width: 640px) {
+  .login-container-group {
+    top: 78%;
+  }
 }
