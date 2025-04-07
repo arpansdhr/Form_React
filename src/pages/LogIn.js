@@ -3,7 +3,7 @@ import { LoadingButton } from '@mui/lab';
 import { TextField, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 import './LogIn.css';
-import google from './assests/google.svg';
+import google from '../assests/google.svg';
 
 const LogIn = () => {
   const [user, setUser] = useState({ value: "", isTouched: false });
